@@ -14,10 +14,10 @@ Contributers:
 * Eugen Kochtyrew
 
 ## Some screenshots
-![oauth.io](https://raw.githubusercontent.com/fr3dm4n/gui-project/master/docs/darktheme.png)
-![oauth.io](https://raw.githubusercontent.com/fr3dm4n/gui-project/master/docs/daytheme.png)
-![oauth.io](https://raw.githubusercontent.com/fr3dm4n/gui-project/master/docs/menu.png)
-![oauth.io](https://raw.githubusercontent.com/fr3dm4n/gui-project/master/docs/addtag.png)
+![oauth.io](../tweetor/master/docs/darktheme.png)
+![oauth.io](../tweetor/master/docs/daytheme.png)
+![oauth.io](../tweetor/master/docs/menu.png)
+![oauth.io](../tweetor/master/docs/addtag.png)
 
 ## Installation
  
@@ -28,7 +28,7 @@ We were not allowed by our professor to use any server side technology. So we en
 3. Enter your domain which will host tweetor and copy the public key into [oauthio.key.js](../gui-project/master/oauthio.key.js)
 4. Add Twitter as a provider by creating an app at (https://apps.twitter.com/) and copy your consumer-key and consumer-secret to oauth.io
 5. ___PLEASE NOTE___: Mockingbirds are Mock-Messages. If you like to observe real messages you have to select "Twitter Tweets"
-![oauth.io](https://raw.githubusercontent.com/fr3dm4n/gui-project/master/docs/oauth.io.png)
+![oauth.io](master/docs/oauth.io.png)
 
 
 ## Note about the code quality
