@@ -1,0 +1,14 @@
+<fieldset class="mockingBirdConfig" >
+    <legend>Datenquelle</legend>
+    <small class="dscr">Bitte wählen Sie Ihre Datenquelle</small>
+
+    <input type="radio" ng-model="datasource" ng-change="changeDataSource()" name="datasource" id="datasourceTwitter" value="twitter" />
+    <label  class="tweetingbird" for="datasourceTwitter">
+        <span>Twitter Tweets</span>
+    </label>
+
+    <input type="radio" ng-model="datasource" ng-change="changeDataSource()" name="datasource" id="datasoruceMockup" value="mockup" />
+    <label class="mockingbird" for="datasoruceMockup">
+        <span>Mockingbirds</span>
+    </label>
+</fieldset>

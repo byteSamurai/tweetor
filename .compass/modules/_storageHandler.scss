@@ -1,0 +1,61 @@
+
+.mockingBirdConfig {
+   display:inline-block;
+   width:280px;
+   min-width:280px;
+   small.dscr {
+      display: block;
+      margin: 5px 0;
+      clear: both;
+   }
+   input[type="radio"] {
+
+      float: left;
+      clear: both;
+      display: none;
+      & + label {
+         @include background($button-off-gradient  !important);
+         @extend a.button;
+
+         text-align: center;
+         padding: 3px;
+         font-size: 10pt;
+         font-weight: bold;
+         cursor: pointer;
+         display: block;
+         height: 100px;
+         width: 115px;
+         float: left;
+
+         &.mockingbird span {
+            @include background(url("../img/mockingbird.png") center 10px no-repeat);
+         }
+         &.tweetingbird span {
+            @include background(url("../img/tweetingbird.png") center 10px no-repeat);
+         }
+         &.tweetingbird span, &.mockingbird span {
+            @include transition-property(background-size,background-position, font-size, opacity);
+            @include transition-duration(.2s,.2s,.2s,.2s);
+            @include transition-timing-function(ease-in-out,ease-in-out,ease-in-out,ease-in-out);
+            display: block;
+            opacity:0.7;
+            padding-top: 78px;
+            background-position: center 17px;
+            background-size: 50px 50px;
+         }
+      }
+      &:checked + label, &:hover + label {
+         @extend a.button:hover;
+
+         @include background($button-normal-gradient !important);
+         font-size: 11pt;
+         span {
+            opacity:1;
+            background-position: center 10px;
+            background-size: 64px 64px;
+            color: $font-color;
+         }
+      }
+   }
+
+}

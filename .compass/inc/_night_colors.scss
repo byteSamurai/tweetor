@@ -1,0 +1,40 @@
+$default-font-color:white;
+$font-color: #fffbca;
+$font-stroke: rgba(255, 255, 184, 0.50);
+$default-text-shadow-color:#000;
+$body-gradient:radial-gradient(50px 50px, #142636 10px, #091421 300px);
+/**
+* Buttons
+*/
+$button-fallback-background:#3bb3e0;
+$button-normal-gradient:linear-gradient(bottom, rgb(44, 160, 202) 0%, rgb(62, 184, 229) 100%);
+$button-hover-gradient:linear-gradient(bottom, rgb(68, 196, 242) 0%, rgb(48, 174, 217) 100%);
+$button-active-gradient:linear-gradient(bottom, rgb(62, 184, 229) 0%, rgb(44, 160, 202) 100%);
+$button-off-gradient:linear-gradient(bottom, darken(rgb(62, 184, 229), 10%) 0%, darken(rgb(44, 160, 202), 10%) 100% );
+$button-shadow:inset 0px 1px 0px #7fd2f1, 0px 1px 0px #fff;
+$button-border:solid 1px #186f8f;
+$button-font-color: white;
+/**
+* Fieldsets
+*/
+$fieldset-border-color:rgba(100,100,100,0.3);
+$fieldset-background: rgba(156, 202, 255, 0.40);
+
+/**
+* legends
+*/
+$legend-color:rgba(255,255,255,0.8);
+$legend-text-shadow:none;
+
+/**
+* configheader
+*/
+$config-header-background:linear-gradient(bottom, #7b7b7b,  #616161 20px, #222222);
+$config-header-border-bottom:1px solid #918ca1;
+$conig-header-signin-button-font-color:#000;
+
+/**
+* timeline
+*/
+$tweet-background-color: #4d4d4d;
+$tweet-bubble-img: url('/img/tweet_bubble_night.png');

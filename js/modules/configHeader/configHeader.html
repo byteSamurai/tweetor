@@ -1,0 +1,51 @@
+<div id="configHeaderCP"  ng-hide="closedCP"  >
+    <div class="innerWrapper">
+    <!-- STYLE-ATTR 4 MEMOS -->
+<fieldset id="hashtags_comp">
+    <legend>Hashtags</legend>
+    <small class="dscr">Zu beobachtende Hashtags mit "Enter" einfügen.</small>
+        <tags-input placeholder="neuer Hashtag.."  ng-model="tags" on-tag-added="hashAdded($tag)" replace-spaces-with-dashes="true" on-Tag-removed="hashRemoved($tag)" min-length="2"></tags-input>
+
+        <modal-dialog show='colorPickeropen' dialog-title='FARBWAHL FÜR HASHTAG: {{newTag.text}}'>
+            <div class="colorPickDemo">
+                <h2>Vorschau:</h2>
+                <div class="colorPreview prev" style="background-color: hsl({{h}},{{s}}%,{{v}}%)"></div>
+            </div>
+            <div class="colorPickDemo colorChoser">
+                <h2>Farbregler:</h2>
+                <div class="colorPreview">
+                    <div ng-app class="rgb" ng-init="h=200; s=75; v=50;" >
+                        <p>Farbe <input class="colorRange color" type="range" min="0" max="360" step="1" ng-model="h"></p>
+                        <p>Sättigung <input class="colorRange saturation" type="range" min="0" max="100" step="1" ng-model="s"></p>
+                        <p>Helligkeit <input class="colorRange light" type="range" min="0" max="100" step="1" ng-model="v"></p>
+                    </div>
+                    <div id="colorPicker_buttons">
+                        <button class="button" ng-click="addHashColor(h, s, v);" autofocus>Speichern</button>
+                    </div>
+                </div>
+            </div>
+        </modal-dialog>
+
+
+</fieldset>
+    <!-- Config für mockingbirds -->
+    <linegraphcontroll/>
+    <tweetscontrol/>
+    <mockingbirds />
+</div>
+</div>
+<div id="configHeaderLogoBar">
+    <span class="logo"><img src="img/tweetor_logo.png"><i>v{{ VERSION }}</i></span>
+
+
+
+    <a ng-class="{'disabled':toggleButtonDisabled}" ng-show="loggedIn" href="#" class="button config" ng-click="toggleCP()" title="Konfiguration">
+        <img ng-class="{'rotating':cogIsRunning}" alt="Konfiguration" src="/img/cog.png" height="24" width="24" />
+    </a>
+    &nbsp;
+    &nbsp;
+    <a  ng-show="loggedIn" href="#" class="button contrast" ng-click="toggleDayNight()" title="Tag/Nacht-Schema">
+        <img alt="Tag/Nacht-Schema" src="/img/contrast.png" height="24" width="24" />
+    </a>
+    <logincheckbutton />
+    </div>

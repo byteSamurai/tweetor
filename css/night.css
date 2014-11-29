@@ -1,0 +1,971 @@
+/**
+* Buttons
+*/
+/**
+* Fieldsets
+*/
+/**
+* legends
+*/
+/**
+* configheader
+*/
+/**
+* timeline
+*/
+/* Styling the line-graph */
+section[data-module="linegraph"] .area {
+  stroke-width: 2;
+}
+section[data-module="linegraph"] .y.axis .unit {
+  font-size: 10pt;
+  padding: 25px 0 0 10px;
+  fill: #fffbca;
+  -webkit-transform: translate(8px, 8px);
+  -moz-transform: translate(8px, 8px);
+  -ms-transform: translate(8px, 8px);
+  -o-transform: translate(8px, 8px);
+  transform: translate(8px, 8px);
+}
+section[data-module="linegraph"] .axis {
+  shape-rendering: crispEdges;
+}
+section[data-module="linegraph"] .y.axis line, section[data-module="linegraph"] .y.axis path {
+  stroke-width: 1.5;
+  fill: none;
+  stroke: #fffbca;
+}
+section[data-module="linegraph"] .tick > text {
+  stroke: rgba(255, 255, 184, 0.5);
+  fill: #fffbca;
+}
+section[data-module="linegraph"] .SVGlinegraph {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+}
+section[data-module="linegraph"] .timebubbles circle {
+  fill: #fffbca;
+  stroke: none;
+}
+section[data-module="linegraph"] .timebubbles text {
+  font-size: 10.5pt;
+  fill: #fffbca;
+  -webkit-transform: translate(-25px, 14pt);
+  -moz-transform: translate(-25px, 14pt);
+  -ms-transform: translate(-25px, 14pt);
+  -o-transform: translate(-25px, 14pt);
+  transform: translate(-25px, 14pt);
+  text-shadow: 0 0 4px black;
+}
+section[data-module="linegraph"] .hashtags {
+  top: 0px;
+  right: 0;
+  display: inline-block;
+  position: absolute;
+}
+section[data-module="linegraph"] .hashtags span {
+  color: #fffbca;
+  display: inline-block;
+  padding: 2px 7px;
+  margin-right: 5px;
+  -webkit-box-shadow: 0 1px 5px 0px black;
+  -moz-box-shadow: 0 1px 5px 0px black;
+  box-shadow: 0 1px 5px 0px black;
+  text-shadow: 0 0 4px black;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+section[data-module="linegraph"] .hashtags span em {
+  font-style: normal;
+  display: block;
+  color: #fffbca;
+  font-size: 9pt;
+  white-space: nowrap;
+}
+section[data-module="linegraph"] .animate {
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  opacity: 0;
+}
+section[data-module="linegraph"] .animate.hide {
+  opacity: 0;
+}
+section[data-module="linegraph"] .animate.show {
+  opacity: 1;
+}
+section[data-module="linegraph"] .resizing {
+  background: url("/img/load_white.gif") no-repeat calc(50% - 70px) center;
+  color: #fffbca;
+  text-transform: uppercase;
+  font-size: 10pt;
+  position: absolute;
+  display: block;
+  width: 100%;
+  top: 50%;
+  text-align: center;
+  height: 10pt;
+  z-index: 100;
+  text-shadow: 0 0 4px black;
+}
+
+#linegraphcontrol {
+  width: 125px;
+  min-width: 125px;
+  display: inline-block;
+  vertical-align: top;
+  height: 150px;
+}
+#linegraphcontrol > label {
+  display: block;
+}
+
+.moveframe {
+  stroke: red;
+  fill: none;
+  stroke-width: 1;
+}
+
+tags-input *, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+tags-input .host {
+  position: relative;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+tags-input .host:active {
+  outline: none;
+}
+
+tags-input .tags {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  padding: 1px;
+  overflow: hidden;
+  word-wrap: break-word;
+  cursor: text;
+  background-color: white;
+  border: 1px solid darkgray;
+  box-shadow: 1px 1px 1px 0 lightgray inset;
+}
+
+tags-input .tags.focused {
+  outline: none;
+  -webkit-box-shadow: 0 0 3px 1px rgba(5, 139, 242, 0.6);
+  -moz-box-shadow: 0 0 3px 1px rgba(5, 139, 242, 0.6);
+  box-shadow: 0 0 3px 1px rgba(5, 139, 242, 0.6);
+}
+
+tags-input .tags .tag-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+tags-input .tags .tag-item {
+  color: white;
+  text-shadow: 0 0 4px black;
+  margin: 2px;
+  padding: 0 5px;
+  display: inline-block;
+  float: left;
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 26px;
+  line-height: 25px;
+  border: 1px solid #acacac;
+  border-radius: 3px;
+  background: -webkit-linear-gradient(top, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
+  background: linear-gradient(to bottom, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
+}
+
+tags-input .tags .tag-item.selected {
+  background: -webkit-linear-gradient(top, #febbbb 0%, #fe9090 45%, #ff5c5c 100%);
+  background: linear-gradient(to bottom, #febbbb 0%, #fe9090 45%, #ff5c5c 100%);
+}
+
+tags-input .tags .tag-item .remove-button {
+  margin: 0 0 0 5px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  vertical-align: middle;
+  font: bold 16px Arial, sans-serif;
+  color: #dfdfdf;
+}
+
+tags-input .tags .tag-item .remove-button:active {
+  color: red;
+}
+
+tags-input .tags .input {
+  border: 0;
+  outline: none;
+  margin: 2px;
+  padding: 0;
+  padding-left: 5px;
+  float: left;
+  height: 26px;
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+tags-input .tags .input.invalid-tag {
+  color: red;
+}
+
+tags-input .tags .input::-ms-clear {
+  display: none;
+}
+
+tags-input.ng-invalid .tags {
+  -webkit-box-shadow: 0 0 3px 1px rgba(255, 0, 0, 0.6);
+  -moz-box-shadow: 0 0 3px 1px rgba(255, 0, 0, 0.6);
+  box-shadow: 0 0 3px 1px rgba(255, 0, 0, 0.6);
+}
+
+tags-input .autocomplete {
+  margin-top: 5px;
+  position: absolute;
+  padding: 5px 0;
+  z-index: 999;
+  width: 100%;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+tags-input .autocomplete .suggestion-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+tags-input .autocomplete .suggestion-item {
+  padding: 5px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font: 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: black;
+  background-color: white;
+}
+
+tags-input .autocomplete .suggestion-item.selected {
+  color: white;
+  background-color: #0097cf;
+}
+
+tags-input .autocomplete .suggestion-item.selected em {
+  color: white;
+  background-color: #0097cf;
+}
+
+tags-input .autocomplete .suggestion-item em {
+  font: normal bold 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: black;
+  background-color: white;
+}
+
+.ng-modal {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ng-modal-overlay {
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.8;
+}
+
+.ng-modal-dialog {
+  z-index: 10000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  background-color: #fff;
+  box-shadow: 4px 4px 80px #000;
+  -webkit-box-shadow: 4px 4px 80px #000;
+  -moz-box-shadow: 4px 4px 80px #000;
+  -ms-box-shadow: 4px 4px 80px #000;
+  -o-box-shadow: 4px 4px 80px #000;
+  padding: 10px;
+}
+
+.ng-modal-dialog-content {
+  overflow: hidden;
+  height: 100%;
+}
+
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  padding: 5px;
+  display: inline-block;
+}
+
+.ng-modal-close-x {
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+.ng-modal-title {
+  font-weight: bold;
+  font-size: 200%;
+  display: block;
+  margin-bottom: 10px;
+  padding-bottom: 7px;
+  border-bottom: solid 1px #999;
+}
+
+#configHeaderOverlay {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  height: 40px;
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #918ca1;
+}
+#configHeaderOverlay > div {
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #7b7b7b), color-stop(20px, #616161), color-stop(100%, #222222));
+  background-image: -webkit-linear-gradient(bottom, #7b7b7b, #616161 20px, #222222);
+  background-image: -moz-linear-gradient(bottom, #7b7b7b, #616161 20px, #222222);
+  background-image: -o-linear-gradient(bottom, #7b7b7b, #616161 20px, #222222);
+  background-image: linear-gradient(bottom, #7b7b7b, #616161 20px, #222222);
+  -webkit-box-shadow: black 0 -2px 10px 5px;
+  -moz-box-shadow: black 0 -2px 10px 5px;
+  box-shadow: black 0 -2px 10px 5px;
+}
+
+#configHeaderLogoBar {
+  height: 40px;
+}
+#configHeaderLogoBar a.config.disabled, #configHeaderLogoBar a.disabled.button.signin, #configHeaderLogoBar .mockingBirdConfig input[type="radio"] + label.disabled.signin, .mockingBirdConfig #configHeaderLogoBar input[type="radio"] + label.disabled.signin {
+  opacity: 0.5;
+  border-color: transparent;
+}
+#configHeaderLogoBar a.config, #configHeaderLogoBar a.button.signin, #configHeaderLogoBar .mockingBirdConfig input[type="radio"] + label.signin, .mockingBirdConfig #configHeaderLogoBar input[type="radio"] + label.signin, #configHeaderLogoBar a.contrast {
+  float: right;
+}
+#configHeaderLogoBar a.button.signin, #configHeaderLogoBar .mockingBirdConfig input[type="radio"] + label.signin, .mockingBirdConfig #configHeaderLogoBar input[type="radio"] + label.signin {
+  color: black;
+  font: bold 14px/22px arial, sans-serif;
+  padding: 3px 5px;
+  float: right;
+}
+#configHeaderLogoBar a.button.signin img, #configHeaderLogoBar .mockingBirdConfig input[type="radio"] + label.signin img, .mockingBirdConfig #configHeaderLogoBar input[type="radio"] + label.signin img {
+  float: left;
+  padding-right: 5px;
+  display: inline-block;
+}
+#configHeaderLogoBar span.logo {
+  float: left;
+  height: 34px;
+  margin: 3px 10px;
+  width: 220px;
+  display: block;
+}
+#configHeaderLogoBar span.logo i {
+  font-size: 7.5pt;
+  opacity: .3;
+  padding: 2px;
+}
+
+#configHeaderCP {
+  overflow-y: hidden;
+  overflow-x: auto;
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  -webkit-transition-property: max-height;
+  -moz-transition-property: max-height;
+  -o-transition-property: max-height;
+  transition-property: max-height;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+#configHeaderCP.ng-hide-add, #configHeaderCP.ng-hide-remove {
+  display: block !important;
+  max-height: 0;
+}
+#configHeaderCP.ng-hide-remove.ng-hide-remove-active {
+  max-height: 220px;
+}
+#configHeaderCP.ng-hide-add {
+  max-height: 220px;
+}
+#configHeaderCP.ng-hide-add.ng-hide-add-active {
+  max-height: 0;
+}
+
+.colorPickDemo {
+  float: left;
+}
+
+.colorPreview {
+  width: 200px;
+  height: 200px;
+  margin-right: 50px;
+}
+
+.colorChoser {
+  width: 400px;
+}
+
+@keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+
+#hashtags_comp {
+  display: inline-block;
+  vertical-align: top;
+  height: 150px;
+  width: 30%;
+}
+
+input[type='range'].colorRange {
+  -webkit-appearance: none;
+  border-radius: 5px;
+  box-shadow: inset 0 0 5px #333;
+  background-color: #999;
+  height: 10px;
+  width: 350px;
+  vertical-align: middle;
+}
+
+input[type='range'].colorRange.light {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #000000), color-stop(100%, #ffffff));
+  background-image: -webkit-linear-gradient(left, #000000, #ffffff);
+  background-image: -moz-linear-gradient(left, #000000, #ffffff);
+  background-image: -o-linear-gradient(left, #000000, #ffffff);
+  background-image: linear-gradient(left, #000000, #ffffff);
+}
+
+input[type='range'].colorRange.saturation {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #c7c3ce), color-stop(100%, #323234));
+  background-image: -webkit-linear-gradient(left, #c7c3ce, #323234);
+  background-image: -moz-linear-gradient(left, #c7c3ce, #323234);
+  background-image: -o-linear-gradient(left, #c7c3ce, #323234);
+  background-image: linear-gradient(left, #c7c3ce, #323234);
+}
+
+input[type='range'].colorRange.color {
+  background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(0%, #ff0000), color-stop(16.66667%, #ffff00), color-stop(33.33333%, #008000), color-stop(50%, #00ffff), color-stop(66.66667%, #0000ff), color-stop(83.33333%, #ff00ff), color-stop(100%, #ff0000));
+  background-image: -webkit-linear-gradient(left, #ff0000, #ffff00, #008000, #00ffff, #0000ff, #ff00ff, #ff0000);
+  background-image: -moz-linear-gradient(left, #ff0000, #ffff00, #008000, #00ffff, #0000ff, #ff00ff, #ff0000);
+  background-image: -o-linear-gradient(left, #ff0000, #ffff00, #008000, #00ffff, #0000ff, #ff00ff, #ff0000);
+  background-image: linear-gradient(left, #ff0000, #ffff00, #008000, #00ffff, #0000ff, #ff00ff, #ff0000);
+}
+
+input[type='range'].colorRange::-moz-range-track {
+  -moz-appearance: none;
+  border-radius: 5px;
+  box-shadow: inset 0 0 5px #333;
+  background-color: #999;
+  height: 10px;
+}
+
+input[type='range'].colorRange::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  border-radius: 20px;
+  background-color: #FFF;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 1px solid #999;
+  height: 20px;
+  width: 20px;
+}
+
+input[type='range'].colorRange::-moz-range-thumb {
+  -moz-appearance: none;
+  border-radius: 20px;
+  background-color: #FFF;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 1px solid #999;
+  height: 20px;
+  width: 20px;
+}
+
+.innerWrapper {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  min-width: 100%;
+}
+
+.ng-modal-dialog {
+  background-color: #dddddd;
+  padding: 30px;
+}
+
+.prev {
+  border: 5px solid white;
+}
+
+.ng-modal-title {
+  text-align: center;
+}
+
+section[data-module="bubblechart"] h2.bubblechartDescription {
+  color: white;
+  margin: 0 10px -7px 15px;
+  opacity: 0.75;
+  text-align: right;
+  margin-right: 10px;
+}
+section[data-module="bubblechart"] h2.bubblechartDescription span {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 18px;
+  top: -18px;
+  color: transparent;
+  font-size: 0;
+  background: url("/img/randomTweet_bird.png") no-repeat top right;
+}
+section[data-module="bubblechart"] svg {
+  width: 100%;
+  height: 100%;
+  color: white;
+  position: absolute;
+  margin: 0;
+}
+section[data-module="bubblechart"] .node text {
+  display: inline;
+  fill: #fffbca;
+  font-style: normal;
+  white-space: nowrap;
+  text-shadow: 0 0 4px black;
+  text-anchor: middle;
+}
+section[data-module="bubblechart"] .node circle {
+  stroke: none;
+  stroke-width: 0;
+}
+
+.mockingBirdConfig {
+  display: inline-block;
+  width: 280px;
+  min-width: 280px;
+}
+.mockingBirdConfig small.dscr {
+  display: block;
+  margin: 5px 0;
+  clear: both;
+}
+.mockingBirdConfig input[type="radio"] {
+  float: left;
+  clear: both;
+  display: none;
+}
+.mockingBirdConfig input[type="radio"] + label {
+  background: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #1ca2d4), color-stop(100%, #237fa0)) !important;
+  background: -webkit-linear-gradient(bottom, #1ca2d4 0%, #237fa0 100%) !important;
+  background: -moz-linear-gradient(bottom, #1ca2d4 0%, #237fa0 100%) !important;
+  background: -o-linear-gradient(bottom, #1ca2d4 0%, #237fa0 100%) !important;
+  background: linear-gradient(bottom, #1ca2d4 0%, #237fa0 100%) !important;
+  text-align: center;
+  padding: 3px;
+  font-size: 10pt;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  height: 100px;
+  width: 115px;
+  float: left;
+}
+.mockingBirdConfig input[type="radio"] + label.mockingbird span {
+  background: url("../img/mockingbird.png") center 10px no-repeat;
+}
+.mockingBirdConfig input[type="radio"] + label.tweetingbird span {
+  background: url("../img/tweetingbird.png") center 10px no-repeat;
+}
+.mockingBirdConfig input[type="radio"] + label.tweetingbird span, .mockingBirdConfig input[type="radio"] + label.mockingbird span {
+  -webkit-transition-property: background-size, background-position, font-size, opacity;
+  -moz-transition-property: background-size, background-position, font-size, opacity;
+  -o-transition-property: background-size, background-position, font-size, opacity;
+  transition-property: background-size, background-position, font-size, opacity;
+  -webkit-transition-duration: 0.2s, 0.2s, 0.2s, 0.2s;
+  -moz-transition-duration: 0.2s, 0.2s, 0.2s, 0.2s;
+  -o-transition-duration: 0.2s, 0.2s, 0.2s, 0.2s;
+  transition-duration: 0.2s, 0.2s, 0.2s, 0.2s;
+  -webkit-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+  -moz-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+  -o-transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+  transition-timing-function: ease-in-out, ease-in-out, ease-in-out, ease-in-out;
+  display: block;
+  opacity: 0.7;
+  padding-top: 78px;
+  background-position: center 17px;
+  background-size: 50px 50px;
+}
+.mockingBirdConfig input[type="radio"]:checked + label, .mockingBirdConfig input[type="radio"]:hover + label {
+  background: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #2ca0ca), color-stop(100%, #3eb8e5)) !important;
+  background: -webkit-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%) !important;
+  background: -moz-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%) !important;
+  background: -o-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%) !important;
+  background: linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%) !important;
+  font-size: 11pt;
+}
+.mockingBirdConfig input[type="radio"]:checked + label span, .mockingBirdConfig input[type="radio"]:hover + label span {
+  opacity: 1;
+  background-position: center 10px;
+  background-size: 64px 64px;
+  color: #fffbca;
+}
+
+section[data-module="tweets"] {
+  /**
+* Tweets Transition
+*/
+}
+section[data-module="tweets"] .clear {
+  clear: both;
+}
+section[data-module="tweets"] h2 {
+  margin: 0 0 5px 15px;
+  height: 36px;
+  color: white;
+  opacity: 0.75;
+  padding-left: 26px;
+}
+section[data-module="tweets"] h2::before {
+  content: " ";
+  position: absolute;
+  margin: 8px 0 0 -26px;
+  height: 18px;
+  width: 22px;
+  display: block;
+  background: url("/img/randomTweet_bird.png") no-repeat top right;
+}
+section[data-module="tweets"] .tweetElement {
+  margin: 0 0 0 40px;
+  width: 90%;
+  overflow: hidden;
+  padding-left: 9px;
+  -webkit-transform-origin: 0 100% 0 50%;
+  -moz-transform-origin: 0 100% 0 50%;
+  -ms-transform-origin: 0 100% 0 50%;
+  -o-transform-origin: 0 100% 0 50%;
+  transform-origin: 0 100% 0 50%;
+}
+section[data-module="tweets"] .tweetBubble {
+  width: 9px;
+  height: 20px;
+  background-image: url("/img/tweet_bubble_night.png");
+  float: left;
+  position: relative;
+  right: 9px;
+}
+section[data-module="tweets"] .userTweet {
+  font-size: 13px;
+  width: 90%;
+  background-color: #4d4d4d;
+  padding: 10px 10px 10px 0;
+  float: left;
+  margin: 0 0 10px 0;
+  position: relative;
+  -webkit-box-shadow: black 2px 2px 3px;
+  -moz-box-shadow: black 2px 2px 3px;
+  box-shadow: black 2px 2px 3px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+section[data-module="tweets"] .userTweet img {
+  float: left;
+  margin: 0 10px 0 0;
+}
+section[data-module="tweets"] .userTweet p.ng-binding {
+  margin: 0;
+}
+section[data-module="tweets"] .userTweet a.tweet-user {
+  font-weight: bold;
+  color: #00b4ff;
+}
+section[data-module="tweets"] .timelineWrapper {
+  height: 100%;
+  overflow: hidden;
+}
+section[data-module="tweets"] .mouseover_scroll {
+  overflow: hidden;
+  height: calc(100% - 36px );
+  -webkit-perspective: 500px;
+  -moz-perspective: 500px;
+  -ms-perspective: 500px;
+  -o-perspective: 500px;
+  perspective: 500px;
+}
+section[data-module="tweets"] .mouseover_scroll:hover {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+section[data-module="tweets"] .mouseover_scroll:hover > div {
+  width: calc(90% + 10px);
+}
+section[data-module="tweets"] .ng-enter,
+section[data-module="tweets"] .ng-leave {
+  -webkit-transition: 1500ms cubic-bezier(0.155, 0.6, 0.335, 0.995) all;
+  -moz-transition: 1500ms cubic-bezier(0.155, 0.6, 0.335, 0.995) all;
+  -o-transition: 1500ms cubic-bezier(0.155, 0.6, 0.335, 0.995) all;
+  transition: 1500ms cubic-bezier(0.155, 0.6, 0.335, 0.995) all;
+  display: block;
+}
+section[data-module="tweets"] .ng-leave.ng-leave-active,
+section[data-module="tweets"] .ng-enter {
+  -webkit-transform: rotateX(104deg);
+  -moz-transform: rotateX(104deg);
+  -ms-transform: rotateX(104deg);
+  -o-transform: rotateX(104deg);
+  transform: rotateX(104deg);
+  max-height: 0px;
+  opacity: 0;
+}
+section[data-module="tweets"] .ng-enter.ng-enter-active,
+section[data-module="tweets"] .ng-leave {
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  -o-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  max-height: 150px;
+  opacity: 1;
+}
+section[data-module="tweets"] ::-webkit-scrollbar {
+  width: 12px;
+}
+section[data-module="tweets"] ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+section[data-module="tweets"] ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+#tweetsControl {
+  width: 140px;
+  display: inline-block;
+  vertical-align: top;
+  height: 150px;
+}
+#tweetsControl input {
+  float: left;
+  clear: left;
+  display: block;
+}
+
+html, html > * {
+  height: 100%;
+}
+
+body {
+  font-family: 'Oxygen', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: white;
+  background: -webkit-gradient(radial, 50px 50px, 0, 50px 50px, 300, color-stop(3.33333%, #142636), color-stop(100%, #091421));
+  background: -webkit-radial-gradient(50px 50px, #142636 10px, #091421 300px);
+  background: -moz-radial-gradient(50px 50px, #142636 10px, #091421 300px);
+  background: -o-radial-gradient(50px 50px, #142636 10px, #091421 300px);
+  background: radial-gradient(50px 50px, #142636 10px, #091421 300px);
+  background-repeat: no-repeat;
+}
+body #slots {
+  position: fixed;
+  width: 100%;
+  height: calc(100% - 50px);
+  overflow: hidden;
+  margin: 0;
+  top: 50px;
+}
+body .slot {
+  position: absolute;
+  overflow: hidden;
+}
+body .slot.top {
+  width: 100%;
+  height: 45%;
+}
+body .slot.bottom.right, body .slot.bottom.left {
+  width: 50%;
+  top: 45%;
+  height: 55%;
+  display: block;
+}
+body .slot.bottom.right {
+  left: 50%;
+}
+
+h2 {
+  margin: 0;
+}
+
+/**
+Button-styling
+**/
+a.button, .mockingBirdConfig input[type="radio"] + label {
+  background-color: #3bb3e0;
+  padding: 2px 3px 1px 3px;
+  margin: 4px 8px;
+  position: relative;
+  font: 12px/1 'Open Sans', sans-serif;
+  text-decoration: none;
+  color: white;
+  border: solid 1px #186f8f;
+  background: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #2ca0ca), color-stop(100%, #3eb8e5));
+  background: -webkit-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);
+  background: -moz-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);
+  background: -o-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);
+  background: linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);
+  -webkit-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px white;
+  -moz-box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px white;
+  box-shadow: inset 0px 1px 0px #7fd2f1, 0px 1px 0px white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+a.button:hover, .mockingBirdConfig input[type="radio"] + label:hover, .mockingBirdConfig input[type="radio"]:checked + label, .mockingBirdConfig input[type="radio"]:hover + label {
+  padding: 2px 3px 1px 3px;
+  background: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #44c4f2), color-stop(100%, #30aed9));
+  background: -webkit-linear-gradient(bottom, #44c4f2 0%, #30aed9 100%);
+  background: -moz-linear-gradient(bottom, #44c4f2 0%, #30aed9 100%);
+  background: -o-linear-gradient(bottom, #44c4f2 0%, #30aed9 100%);
+  background: linear-gradient(bottom, #44c4f2 0%, #30aed9 100%);
+}
+a.button:active, .mockingBirdConfig input[type="radio"] + label:active {
+  padding: 3px 3px 0px 3px;
+  background: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #3eb8e5), color-stop(100%, #2ca0ca));
+  background: -webkit-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);
+  background: -moz-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);
+  background: -o-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);
+  background: linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);
+}
+
+fieldset {
+  margin: 2px 7px;
+  display: inline-block;
+  flex: none;
+}
+
+legend, fieldset {
+  border-color: rgba(100, 100, 100, 0.3);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background: rgba(156, 202, 255, 0.4);
+}
+legend legend, fieldset legend {
+  text-shadow: none;
+  color: rgba(255, 255, 255, 0.8);
+  background: none;
+  opacity: 1;
+  font: bold 10pt/1 arial, sans-serif;
+  text-transform: uppercase;
+}
+
+/**
+Overlay
+*/
+.overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: black url("../img/skin-loading.gif") center center no-repeat;
+  z-index: 2000;
+}

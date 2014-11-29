@@ -1,0 +1,141 @@
+section[data-module="tweets"] {
+
+   .clear {
+      clear: both;
+   }
+   $random-tweet-height:36px;
+   h2 {
+      margin: 0 0 5px 15px;
+      height:$random-tweet-height;
+
+      color: white;
+      opacity: 0.75;
+      padding-left:26px;
+      &::before {
+         content: " ";
+         position: absolute;
+         margin: 8px 0 0 -26px;
+
+         height: 18px;
+         width: 22px;
+         display: block;
+         @include background(url("/img/randomTweet_bird.png") no-repeat top right);
+
+      }
+   }
+
+   .tweetElement {
+      margin: 0 0 0 40px;
+      width: 90%;
+      overflow: hidden;
+      padding-left: 9px;
+      @include transform-origin(0 100% 0);
+   }
+
+   .tweetBubble {
+      width: 9px;
+      height: 20px;
+      background-image: $tweet-bubble-img;
+      float: left;
+      position: relative;
+      right: 9px;
+   }
+
+   .userTweet {
+      font-size: 13px;
+      width: 90%;
+      background-color: $tweet-background-color;
+      padding: 10px 10px 10px 0;
+      float: left;
+      margin: 0 0 10px 0;
+      position: relative;
+
+      @include box-shadow(black 2px 2px 3px);
+      @include border-radius(10px);
+
+      img {
+         float: left;
+         margin: 0 10px 0 0;
+      }
+
+      p.ng-binding {
+         margin: 0;
+      }
+
+      a.tweet-user {
+         font-weight: bold;
+         color: #00b4ff;
+      }
+   }
+   .timelineWrapper{
+      height: 100%;
+      overflow:hidden;
+   }
+   .mouseover_scroll {
+      overflow: hidden;
+      height: calc( 100% - #{$random-tweet-height} );
+      @include perspective(500px); //statischer wert, muss ggf. angepasst werden
+   }
+
+   .mouseover_scroll:hover {
+      overflow-y: auto;
+      overflow-x: hidden;
+      & > div {
+         width: calc(90% + 10px);
+      }
+   }
+
+   /**
+ * Tweets Transition
+ */
+
+   .ng-enter,
+   .ng-leave {
+      @include transition(1500ms cubic-bezier(0.155, 0.600, 0.335, 0.995) all);
+      //position: relative;
+      display: block;
+
+   }
+
+   .ng-leave.ng-leave-active,
+   .ng-enter {
+
+      @include transform(rotateX(104deg));
+      max-height: 0px;
+      opacity: 0;
+   }
+   .ng-enter.ng-enter-active,
+   .ng-leave {
+      @include transform(rotateX(0deg));
+      max-height: 150px; //imaginary!
+      opacity: 1;
+   }
+
+   ::-webkit-scrollbar {
+      width: 12px;
+   }
+
+   ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+   }
+
+   ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+   }
+
+}
+
+#tweetsControl {
+   width: 140px;
+   display: inline-block;
+   vertical-align: top;
+   height: 150px;
+   input {
+      float: left;
+      clear: left;
+      display: block;
+   }
+}
+

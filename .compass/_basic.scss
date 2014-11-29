@@ -1,0 +1,99 @@
+$topHeight:45%;
+$offsetY:50px;
+
+html, html > * {
+   height: 100%;
+}
+
+body{
+   font-family: 'Oxygen', sans-serif;
+   margin:0;
+   padding:0;
+   color:$default-font-color;
+   @include background($body-gradient);
+   background-repeat: no-repeat;
+   #slots{
+      position:fixed;
+      width:100%;
+      height:calc(100% - #{$offsetY});
+      overflow:hidden;
+      margin: 0;
+      top:$offsetY;
+   }
+   .slot{
+      position:absolute;
+      overflow:hidden;
+      &.top{
+
+         width:100%;
+         height:$topHeight;
+      }
+      &.bottom.right, &.bottom.left{
+         width:50%;
+         top:$topHeight;
+         height: 100%-$topHeight;
+         display:block;
+      }
+      &.bottom.right{
+         left:50%;
+      }
+   }
+}
+
+h2{
+   margin: 0;
+}
+
+/**
+Button-styling
+**/
+a.button {
+   background-color: $button-fallback-background;
+   padding: 2px 3px 1px 3px;
+   margin: 4px 8px;
+   position: relative;
+   font: 12px/1 'Open Sans', sans-serif;
+   text-decoration: none;
+   color: $button-font-color;
+   border: $button-border;
+   @include background($button-normal-gradient );
+   @include box-shadow($button-shadow);
+   @include border-radius(5px);
+   &:hover {
+      padding:2px 3px 1px 3px;
+      @include background($button-hover-gradient);
+   }
+   &:active {
+      padding:3px 3px 0px 3px;
+      @include background($button-active-gradient);
+   }
+}
+fieldset{
+   margin: 2px 7px;
+   display:inline-block;
+   flex: none
+}
+legend,fieldset{
+   border-color:$fieldset-border-color ;
+   @include border-radius(5px);
+   @include background($fieldset-background);
+   legend{
+      @include text-shadow($legend-text-shadow);
+      color: $legend-color;
+      background:none;
+      opacity: 1;
+      font:bold 10pt/1 arial, sans-serif;
+      text-transform: uppercase;
+   }
+}
+
+/**
+Overlay
+*/
+.overlay{
+   position:fixed;
+   height:100%;
+   width:100%;
+   background:$default-text-shadow-color url("../img/skin-loading.gif") center center no-repeat;
+   z-index: 2000;
+}

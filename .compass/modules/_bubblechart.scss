@@ -1,0 +1,44 @@
+
+section[data-module="bubblechart"] {
+   h2.bubblechartDescription {
+      color: white;
+      margin: 0 10px -7px 15px;
+      opacity: 0.75;
+      text-align: right;
+      span {
+         display: inline-block;
+         position: relative;
+         width: 30px;
+         height: 18px;
+         top: -18px;
+         color: transparent;
+         font-size: 0;
+         @include background(url("/img/randomTweet_bird.png") no-repeat top right)
+      }
+      margin-right: 10px;
+   }
+
+   svg {
+      width: 100%;
+      height:100%;
+      color: white;
+      position: absolute;
+      margin: 0;
+
+   }
+   .node text {
+      display: inline;
+      fill: $font-color;
+      font-style: normal;
+      white-space: nowrap;
+      @include text-shadow(0 0 4px $default-text-shadow-color);
+      text-anchor: middle;
+
+   }
+   .node circle {
+      stroke: none;
+      stroke-width: 0;
+
+   }
+
+}

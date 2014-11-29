@@ -1,0 +1,21 @@
+<svg class="SVGlinegraph">
+    <g>
+        <defs>
+            <clipPath id="linegraphClip">
+                <rect></rect>
+            </clipPath>
+        </defs>
+        <g class="graphbox" clip-path="url(#linegraphClip)" transform="translate(50,0)"></g>
+        <g class="y axis animate hide" transform="translate(50,0)"><text class="unit">Tweets per {{ INTERVALDELAY/1000 }} sec.</text></g>
+        <rect class="animate moveframe"></rect>
+    </g>
+
+    <g class="timebubbles">
+    </g>
+</svg>
+<span class="resizing animate hide">Neuberechnung</span>
+<div class="hashtags">
+    <span class="animate" ng-class="{'show':showHashtags}" ng-repeat="hashtag in hashtags" style="background-color:{{ colors[hashtag] }}">{{ hashtag }}
+        <em>max. {{ dataMaxPerHashtag[hashtag] }}</em>
+    </span>
+</div>
